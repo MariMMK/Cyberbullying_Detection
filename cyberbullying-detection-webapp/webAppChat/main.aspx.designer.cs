@@ -42,6 +42,24 @@ namespace webAppChat
         protected global::System.Web.UI.WebControls.LinkButton lnkButSignOff;
 
         /// <summary>
+        /// upUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upUsers;
+
+        /// <summary>
+        /// timeUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer timeUser;
+
+        /// <summary>
         /// gvUsers control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,24 @@ namespace webAppChat
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvUsers;
+
+        /// <summary>
+        /// upChat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upChat;
+
+        /// <summary>
+        /// timeChat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer timeChat;
 
         /// <summary>
         /// gvChat control.

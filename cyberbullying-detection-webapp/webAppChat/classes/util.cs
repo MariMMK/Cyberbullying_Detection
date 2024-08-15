@@ -10,8 +10,6 @@ namespace webAppChat.classes
 {
     public class util : System.Web.UI.Page
     {
-
-
         public void showMessage(string pMessage)
         {
             Response.Write("<Script Language='JavaScript'>parent.alert('" + pMessage + "');</Script>");
@@ -26,6 +24,5 @@ namespace webAppChat.classes
 
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "scrollDown", sbScript.ToString(), false);
         }
-
     }
 }

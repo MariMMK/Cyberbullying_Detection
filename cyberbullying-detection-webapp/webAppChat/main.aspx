@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="webAppChat.main" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="webAppChat.main" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<meta http-equiv="refresh" content="10" />-->
+    <!-- <meta http-equiv="refresh" content="10" /> -->
 
     <title>Chat room</title>
 
@@ -42,79 +42,98 @@
                  <h5 class = "textOverBlue">Connected users</h5>
                  <div class = "bg-white"
                       style = "height:400px;">
-                      <asp:GridView ID                   = "gvUsers"
-                                    runat                = "server"
-                                    AutoGenerateColumns  = "False"
-                                    OnRowDataBound       = "gvUsers_RowDataBound"
-                                    CssClass             = "table table-condensed table-responsive">
-                          <Columns>
-                              <asp:BoundField DataField  = "sessionId"
-                                              HeaderText = "Session ID"
-                                              ReadOnly   = "True"
-                                              Visible    = "False">
-                              </asp:BoundField>
-                              <asp:BoundField DataField  = "nickname"
-                                              HeaderText = "Nickname"
-                                              ReadOnly   = "True">
-                              <ItemStyle CssClass = "column_usr_nick"/>
-                              </asp:BoundField>
-                              <asp:BoundField DataField  = "toxLevel"
-                                              HeaderText = "toxLevel"
-                                              ReadOnly   = "True"
-                                              Visible    = "False">
-                              </asp:BoundField>
-                              <asp:BoundField DataField  = "toxLevelStr"
-                                              HeaderText = "Toxicity level" 
-                                              ReadOnly   = "True">
-                              <HeaderStyle CssClass = "text-start" />
-                              <ItemStyle   CssClass = "column_usr_level" />
-                              </asp:BoundField>
-                          </Columns>
-                      </asp:GridView>
+                     <asp:UpdatePanel ID    = "upUsers"
+                                      runat = "server">
+                         <ContentTemplate>
+                             <asp:Timer ID       = "timeUser"
+                                        runat    = "server"
+                                        Interval = "1000"
+                                        OnTick   = "timeUser_Tick">
+                             </asp:Timer>
+                             <asp:GridView ID                   = "gvUsers"
+                                           runat                = "server"
+                                           AutoGenerateColumns  = "False"
+                                           OnRowDataBound       = "gvUsers_RowDataBound"
+                                           CssClass             = "table table-condensed table-responsive">
+                                 <Columns>
+                                     <asp:BoundField DataField  = "sessionId"
+                                                     HeaderText = "Session ID"
+                                                     ReadOnly   = "True"
+                                                     Visible    = "False">
+                                     </asp:BoundField>
+                                     <asp:BoundField DataField  = "nickname"
+                                                     HeaderText = "Nickname"
+                                                     ReadOnly   = "True">
+                                     <ItemStyle CssClass = "column_usr_nick"/>
+                                     </asp:BoundField>
+                                     <asp:BoundField DataField  = "toxLevel"
+                                                     HeaderText = "toxLevel"
+                                                     ReadOnly   = "True"
+                                                     Visible    = "False">
+                                     </asp:BoundField>
+                                     <asp:BoundField DataField  = "toxLevelStr"
+                                                     HeaderText = "Toxicity level" 
+                                                     ReadOnly   = "True">
+                                     <HeaderStyle CssClass = "text-start" />
+                                     <ItemStyle   CssClass = "column_usr_level" />
+                                     </asp:BoundField>
+                                 </Columns>
+                             </asp:GridView>
+                         </ContentTemplate>
+                     </asp:UpdatePanel>
                  </div>
              </div>
              <div class = "col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 py-2">
                  <h5 class = "textOverBlue">Chat room</h5>
 
-                 <div id    = "divgv"
-                      class = "bg-white"
-                      style = "height:400px;overflow-y:scroll;">
-
-                     <asp:GridView ID                  = "gvChat"
-                                   runat               = "server"
-                                   AutoGenerateColumns = "False"
-                                   OnRowDataBound      = "gvChat_RowDataBound"             
-                                   CssClass            = "table table-condensed table-responsive" >
-                         <PagerSettings Visible = "False" />
-                         <RowStyle            BackColor = "#F5F5F5" Height = "66.5px" />
-                         <AlternatingRowStyle BackColor = "#FFFFFF" Height = "66.5px" />
-                         <Columns>
-                             <asp:BoundField DataField  = "nickname"
-                                             HeaderText = "nickname"
-                                             ReadOnly   = "True"
-                                             ShowHeader = "False" >
-                                <HeaderStyle CssClass = "column_hide" />
-                                <ItemStyle   CssClass = "column_nick" />
-                             </asp:BoundField>
-                     
-                             <asp:BoundField DataField  = "message"
-                                             HeaderText = "message"
-                                             ReadOnly   = "True"
-                                             ShowHeader = "False" >
-                                <HeaderStyle CssClass = "column_hide" />
-                                <ItemStyle   CssClass = "column_msg"  />
-                             </asp:BoundField>
-                     
-                             <asp:BoundField DataField  = "value"
-                                             HeaderText = "value"
-                                             ReadOnly   = "True"
-                                             ShowHeader = "False" >
-                                <HeaderStyle CssClass = "column_hide" />
-                                <ItemStyle   CssClass = "column_hide" />
-                             </asp:BoundField>
-                         </Columns>
-                     </asp:GridView>
-                   
+                  <div id    = "divgv"
+                       class = "bg-white"
+                       style = "height:400px;overflow-y:scroll;">
+ 
+                     <asp:UpdatePanel ID    = "upChat"
+                                      runat = "server">
+                         <ContentTemplate>
+                             <asp:Timer ID       = "timeChat"
+                                        runat    = "server"
+                                        Interval = "1000"
+                                        OnTick   = "timeChat_Tick">
+                             </asp:Timer>
+                             <asp:GridView ID                  = "gvChat"
+                                           runat               = "server"
+                                           AutoGenerateColumns = "False"
+                                           OnRowDataBound      = "gvChat_RowDataBound"             
+                                           CssClass            = "table table-condensed table-responsive" >
+                                 <PagerSettings Visible = "False" />
+                                 <RowStyle            BackColor = "#F5F5F5" Height = "66.5px" />
+                                 <AlternatingRowStyle BackColor = "#FFFFFF" Height = "66.5px" />
+                                 <Columns>
+                                     <asp:BoundField DataField  = "nickname"
+                                                     HeaderText = "nickname"
+                                                     ReadOnly   = "True"
+                                                     ShowHeader = "False" >
+                                        <HeaderStyle CssClass = "column_hide" />
+                                        <ItemStyle   CssClass = "column_nick" />
+                                     </asp:BoundField>
+                             
+                                     <asp:BoundField DataField  = "message"
+                                                     HeaderText = "message"
+                                                     ReadOnly   = "True"
+                                                     ShowHeader = "False" >
+                                        <HeaderStyle CssClass = "column_hide" />
+                                        <ItemStyle   CssClass = "column_msg"  />
+                                     </asp:BoundField>
+                             
+                                     <asp:BoundField DataField  = "value"
+                                                     HeaderText = "value"
+                                                     ReadOnly   = "True"
+                                                     ShowHeader = "False" >
+                                        <HeaderStyle CssClass = "column_hide" />
+                                        <ItemStyle   CssClass = "column_hide" />
+                                     </asp:BoundField>
+                                 </Columns>
+                             </asp:GridView>
+                         </ContentTemplate>
+                     </asp:UpdatePanel>
                  </div>
 
                  <div class = "mb-3">
