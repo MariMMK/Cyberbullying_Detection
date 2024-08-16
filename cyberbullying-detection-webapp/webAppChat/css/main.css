@@ -1,0 +1,50 @@
+body {
+    background: #FFFFFF; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00507E, #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00507E, #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.textOverBlue {
+    color: white;
+}
+
+.column_hide {
+    display: none;
+}
+
+.column_nick {
+    Width : 25%;
+    font-weight: bold;
+}
+
+.column_msg {
+    Width: 75%;
+}
+
+.column_usr_nick {
+    Width: 60%;
+}
+
+.column_usr_level {
+    Width: 40%;
+}
+
+.rowStyle {
+    height: 66.50px;
+}
+
+.alternateRowStyle {
+    height: 66.50px;
+}
+
+.lblStatus_banned {
+    color: red;
+    font-weight: bold;
+    font-size : 22px;
+}
+
+.lblStatus_warning {
+    color: sandybrown;
+    font-weight: bold;
+    font-size: 22px;
+}

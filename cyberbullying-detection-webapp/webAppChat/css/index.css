@@ -1,0 +1,29 @@
+body {
+    background: #FFFFFF; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00507E, #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00507E, #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.ulmembers {
+    color: white;
+    font-size : 20px;
+}
+
+.textOverWhite {
+    color: #00507E;
+}
+
+.titleH1OverBlue {
+    color: yellow;
+    vertical-align: middle;
+}
+
+.titleOverBlue {
+    color: white;
+    vertical-align: middle;
+}
+
+#lblStatus{
+    color: red;
+    font-size: 18px;
+}
