@@ -16,7 +16,7 @@ namespace webAppChat
         const string cntMsgFull = "Chat room is full!";
         const string cntMsgNickReq = "Nickname is required!";
         const string cntMsgNickUsed = "Nickname has already been used!";
-        const int cntMaxUsers = 5;
+        const int cntMaxUsers = 7;
         string nickName;
 
         protected void Page_Load(object sender, EventArgs e)

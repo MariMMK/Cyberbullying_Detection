@@ -41,7 +41,7 @@
              <div class = "col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 py-2">
                  <h5 class = "textOverBlue">Connected users</h5>
                  <div class = "bg-white"
-                      style = "height:400px;">
+                      style = "height:570px;">
                      <asp:UpdatePanel ID    = "upUsers"
                                       runat = "server">
                          <ContentTemplate>
