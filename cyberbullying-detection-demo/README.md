@@ -35,6 +35,6 @@ Service Result:
     "resultThisMsg": 0.255
 }
 
-Send message "reset" to clear message history (using curl in bash):
+Send message "reset all" to clear the whole message history, or "reset" to clear the sender messages (using curl in bash):
 
-curl --location --request POST 'https://54.151.104.207/api/predict' --header 'Content-Type: application/json' --data '{ "userFrom": "haldo", "userTo": "eduardo", "message": "reset" }' --insecure
+curl --location --request POST 'https://54.151.104.207/api/predict' --header 'Content-Type: application/json' --data '{ "userFrom": "haldo", "userTo": "eduardo", "message": "reset all" }' --insecure

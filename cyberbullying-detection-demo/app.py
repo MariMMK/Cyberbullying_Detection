@@ -76,7 +76,8 @@ def _evaluate_message(userFrom, message):
 
     # getting and returning the prediction
     this_prediction = prediction.get_prediction(message)
-    if (message == "reset"): this_prediction = 0.0 
+    # note: to reset the all_messages, call the API with message = "reset all" or "reset" for the sender only
+    if (message == "reset all" or message == "reset"): this_prediction = 0.0 
     return this_prediction
 
 #=== === === === === === ===
@@ -98,9 +99,12 @@ def _evaluate_all_messages(userFrom, userTo, message):
     
     # getting and keeping the prediction
     this_prediction = prediction.get_prediction(all_messages[key_messages]["messages"])
-    # note: to reset the all_messages, call the API with message = "reset"
-    if (message == "reset"): 
+    # note: to reset the all_messages, call the API with message = "reset all" or "reset" for the sender only
+    if (message == "reset all"): 
         all_messages.clear()
+        this_prediction = 0.0 
+    elif (message == "reset"): 
+        all_messages[key_messages]["messages"] = ""
         this_prediction = 0.0 
     else:
         all_messages[key_messages]["prediction"] = this_prediction
