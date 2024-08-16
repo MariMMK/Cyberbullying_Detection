@@ -63,6 +63,14 @@ namespace webAppChat
 
             Session.Abandon();
 
+            if (flagReset)
+            {
+                foreach (DataRow dtRow in ((DataTable)Application["dtChat"]).Rows)
+                {
+                    dtRow.Delete();
+                }
+            }
+
             Response.Redirect("index.aspx");
         }
 
