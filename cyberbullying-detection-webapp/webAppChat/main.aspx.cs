@@ -117,7 +117,7 @@ namespace webAppChat
 
             if (Page.IsValid)
             {
-                strMessage = txtMsg.Text.Trim();
+                strMessage = txtMsg.Text.Replace("\x022", "'").Trim();
 
                 // calls to NLP model
                 toxicMsg = new toxicMessage(Session["nickname"].ToString(), strMessage);
@@ -204,7 +204,6 @@ namespace webAppChat
         protected void timeChat_Tick(object sender, EventArgs e)
         {
             setDataSource_Chat();
-            scrollDown("divgv");
         }
     }
 }
